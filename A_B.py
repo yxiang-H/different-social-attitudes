@@ -151,7 +151,7 @@ class model(object):
 def pro_acts(N):
     dist = []
     for i in range(N):
-        dist.append(dis.inv_cdf(2.8, 0.01)(random.uniform(0, 1)))
+        dist.append(dis.inv_cdf(2.2, 0.01)(random.uniform(0, 1)))
     return dist
 
 beta_s = [0.02 * i for i in range(51)]
@@ -168,28 +168,6 @@ mu = 0.1
 last_t = 9800
 I_0 = 50
 
-###重复多次实验
-# for beta in beta_s:
-#     stationary_AI = []
-#     stationary_BI = []
-#     for p in p_s:
-#         for i in range(repeat):
-#             dist = pro_acts(N)
-#             act = np.random.choice(dist, n)
-#             dist = []
-#             vertex_dict = {}
-#             for j in range(n):
-#                 vertex_dict[j] = simplex_vertex(j, act[j])
-#             uau_sis = model(vertex_dict, m=m, eta=eta, del_t=del_t, n=n, T=T, p=p, delta=delta, beta=beta, mu=mu, last_t=last_t, I_0=I_0)
-#             stationary_AI.append(uau_sis.reduce_m()[0])
-#             stationary_BI.append(uau_sis.reduce_m()[1])
-#         mean_AI = sum(stationary_AI)/len(stationary_AI)
-#         mean_BI = sum(stationary_BI)/len(stationary_BI)
-#         with open('D:/output1/frequency.txt', 'a') as f:
-#             f.write(str(beta)+' '+ str(p)+' '+ str(mean_AI)+' '+str(mean_BI)+'\n')
-
-
-### 重复一次实验
 for beta in beta_s:
     for p in p_s:
         dist = pro_acts(N)
