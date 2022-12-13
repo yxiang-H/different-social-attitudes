@@ -200,12 +200,10 @@ del_t = 1
 T = 50000
 delta = 0.5
 mu = 0.1
-last_t = 49800
+last_t = 49500
 I_0 = 300
 
 
-
-### 重复一次实验
 for beta in beta_s:
     dist = pro_acts(N)
     act = np.random.choice(dist, n)
